@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+}
+
+/* --- Esconder o checkbox e o ícone no Desktop --- */
+#menu-hamburguer,
+.menu-label {
+  display: none;
+}
+
+/* --- RESPONSIVIDADE (Abaixo de 768px) --- */
+@media (max-width: 769px) {
+  /* Mostra o ícone das 3 barrinhas */
+  .menu-label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 1.5rem;
+  }
+
+  .menu-label span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+  }
+
+  /* Faz o NAV virar uma lista vertical que flutua */
+  nav {
+    display: none; /* Ele começa escondido */
+    position: absolute;
+    top: 6rem; /* Mesma altura do seu header */
+    left: 0;
+    width: 100%;
+    background-color: #042f8d;
+    z-index: 10;
+  }
+
+  nav ul {
+    display: flex;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 2.8rem;
+    width: 100%;
+  }
+
+  nav li {
+    margin: 1rem 0;
+    width: auto;
+    justify-content: center;
+  }
+
+  /* A MÁGICA: Quando clicar no ícone (marcar o checkbox), o nav aparece */
+  #menu-hamburguer:checked ~ nav {
+    display: block;
+  }
+
+  /* Opcional: faz o X quando abrir */
+  #menu-hamburguer:checked ~ .menu-label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #menu-hamburguer:checked ~ .menu-label span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-hamburguer:checked ~ .menu-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #042f8d;
+  min-height: auto;
+  height: 6rem;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.logo-menu {
+  margin: 1rem;
+  height: 4.5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul,
+li,
+a {
+  margin-right: 1.4rem;
+  list-style-type: none;
+  text-decoration: none;
+  color: #fff;
+}
+
+ul,
+li:hover {
+  cursor: pointer;
+}
+
+img {
+  height: 9rem;
+  width: 9rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+.container-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  max-width: 100%;
+  line-height: 2;
+  background-color: #c7c3c3;
+  padding: 1rem;
+}
+
+.function-work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  height: 24rem;
+  max-width: 100%;
+  width: 22rem;
+}
+
+button {
+  width: 6rem;
+  height: 3rem;
+  background-color: rgb(7, 7, 170);
+  margin-top: 1rem;
+  padding: 0.45rem 1.3rem;
+  color: #fff;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(6, 6, 112);
+}
+
+.card {
+  /* ... seu código ... */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; /* Faz a mudança ser suave, não brusca */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Move o card 10px para cima no eixo Y */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Aumenta a sombra para parecer que está mais longe do fundo */
+}
+
+/* --- Responsividade --- */
+
+@media (max-width: 769px) {
+  header {
+    display: flex;
+    height: auto; /* Deixa o header crescer se o menu pular linha */
+    justify-content: space-between; /* Centraliza logo e menu em telas menores */
+    flex-direction: row-reverse;
+    padding: 1rem;
+  }
+
+  ul {
+    margin-right: 0; /* Remove a margem que você tinha colocado */
+    gap: 1rem; /* Espaço menor entre os links */
+    flex-wrap: wrap; /* Se não couber, os links pulam linha suavemente */
+    justify-content: center;
+  }
+
+  .card {
+    max-width: 22rem;
+    width: 90%; /* Diminui um pouco o card para caber melhor */
+    height: auto;
+    min-height: 25rem;
+    padding: 2rem 1rem; /* Dá espaço nas laterais para o texto não bater na borda */
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .container-main .card {
+    margin: auto 1rem;
+  }
+
+  .card {
+    max-width: 22rem;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .function-work,
+  p {
+    text-align: center; /* Centraliza o texto para telas muito pequenas */
+    display: flex;
+  }
+}
