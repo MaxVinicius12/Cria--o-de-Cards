@@ -9,9 +9,17 @@ body {
 }
 
 /* --- Esconder o checkbox e o ícone no Desktop --- */
-#menu-hamburguer,
+/* Garante que o ícone (as barrinhas/X) fique acima do menu lateral */
 .menu-label {
-  display: none;
+  display: flex;
+  position: relative;
+  z-index: 101; /* Maior que o z-index do nav */
+}
+
+/* Ajuste no cabeçalho para acomodar o perfil no canto */
+header {
+  flex-direction: row; /* Mantém logo e menu na mesma linha */
+  padding: 0 1.5rem;
 }
 
 /* --- RESPONSIVIDADE (Abaixo de 768px) --- */
@@ -33,33 +41,60 @@ body {
   }
 
   /* Faz o NAV virar uma lista vertical que flutua */
-  nav {
-    display: none; /* Ele começa escondido */
-    position: absolute;
-    top: 6rem; /* Mesma altura do seu header */
-    left: 0;
-    width: 100%;
-    background-color: #042f8d;
-    z-index: 10;
+  @media (max-width: 769px) {
+    nav {
+      display: block; /* Remove o display: none */
+      position: fixed; /* Fixa na tela mesmo com scroll */
+      top: 0;
+      left: 0;
+      width: 80%; /* Ocupa 80% da largura do celular */
+      height: 100vh; /* Altura total da tela */
+      background: rgba(4, 47, 141, 0.9); /* Azul com transparência */
+      backdrop-filter: blur(10px); /* O efeito de vidro desfoque */
+      z-index: 100;
+
+      /* Faz o menu começar fora da tela à esquerda */
+      transform: translateX(-100%);
+      transition: transform 0.4s ease-in-out;
+
+      padding: 2rem;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
   }
 
   nav ul {
-    display: flex;
-    text-align: center;
-    gap: 2rem;
-    margin-top: 2.8rem;
+    flex-direction: column; /* Empilha os itens */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    margin-top: 4rem; /* Dá espaço para o ícone de fechar/perfil no topo */
+    gap: 1.5rem;
     width: 100%;
   }
 
   nav li {
-    margin: 1rem 0;
-    width: auto;
-    justify-content: center;
+    width: 100%;
+    margin: 0;
+  }
+  nav li a {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background 0.3s;
   }
 
-  /* A MÁGICA: Quando clicar no ícone (marcar o checkbox), o nav aparece */
+  /* Efeito de destaque no item (como o "Início" na imagem) */
+  nav li a:hover,
+  .active-link {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+    color: #00f2ff; /* Cor de destaque neon */
+  }
+
+  /* Quando o checkbox for marcado, o menu desliza para dentro */
   #menu-hamburguer:checked ~ nav {
-    display: block;
+    transform: translateX(0);
   }
 
   /* Opcional: faz o X quando abrir */
