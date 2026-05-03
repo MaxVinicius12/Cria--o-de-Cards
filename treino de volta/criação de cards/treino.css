@@ -128,6 +128,38 @@ header {
   flex-wrap: wrap;
 }
 
+.user-profile-group {
+  display: flex; /* Coloca texto e imagem lado a lado */
+  flex-direction: row-reverse;
+  align-items: center; /* Centraliza verticalmente entre eles */
+  gap: 10px; /* Espaço entre o texto e a foto */
+  color: #fff;
+  justify-content: flex-end;
+}
+
+.profile-user img {
+  width: 5rem;
+  height: 5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.user-inform {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  line-height: 1.5; /* Diminui o espaço entre "Seja bem vindo" e "Max" */
+}
+
+.logo-menu {
+  width: 4rem; /* Ajuste o tamanho para não ficar gigante no mobile */
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid white; /* Aquele detalhe da foto original */
+  margin: 0; /* Remova margens que sobraram do código antigo */
+}
+
 #menu-hamburguer {
   /* Esconde visualmente mas mantém a função */
   position: absolute;
@@ -244,6 +276,41 @@ button:hover {
     justify-content: space-between; /* Centraliza logo e menu em telas menores */
     flex-direction: row-reverse;
     padding: 1rem;
+  }
+
+  .user-profile-group {
+    display: flex; /* Coloca texto e imagem lado a lado */
+    flex-direction: row;
+    align-items: center; /* Centraliza verticalmente entre eles */
+    gap: 10px; /* Espaço entre o texto e a foto */
+    color: #fff;
+    justify-content: flex-end;
+  }
+
+  .profile-user img {
+    width: 5rem;
+    height: 5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  .user-inform {
+    display: flex;
+    flex-direction: column;
+    text-align: right; /* Alinha as linhas de texto para a direita, colando na foto */
+    color: white;
+    line-height: 1.5; /* Diminui o espaço entre "Seja bem vindo" e "Max" */
+    align-items: flex-end; /* Alinha as caixas dos parágrafos para a direita */
+    text-align: right;
+  }
+
+  .logo-menu {
+    width: 4rem; /* Ajuste o tamanho para não ficar gigante no mobile */
+    height: 4rem;
+    border-radius: 50%;
+    border: 2px solid white; /* Aquele detalhe da foto original */
+    margin: 0; /* Remova margens que sobraram do código antigo */
   }
 
   ul {
