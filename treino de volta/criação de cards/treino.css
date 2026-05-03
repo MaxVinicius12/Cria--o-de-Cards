@@ -61,6 +61,14 @@ header {
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
+
+    #menu-hamburguer {
+      /* Esconde visualmente mas mantém a função */
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
   }
 
   nav ul {
@@ -120,6 +128,14 @@ header {
   flex-wrap: wrap;
 }
 
+#menu-hamburguer {
+  /* Esconde visualmente mas mantém a função */
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
 .logo-menu {
   margin: 1rem;
   height: 4.5rem;
@@ -161,11 +177,11 @@ img {
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  min-height: 100vh;
+  min-height: 84vh;
   max-width: 100%;
   line-height: 2;
   background-color: #c7c3c3;
-  padding: 1rem;
+  padding: 4rem 1rem 3rem 1rem;
 }
 
 .function-work {
@@ -184,6 +200,11 @@ img {
   height: 24rem;
   max-width: 100%;
   width: 22rem;
+}
+
+.material-icons {
+  display: none;
+  opacity: 0;
 }
 
 button {
